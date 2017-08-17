@@ -5,6 +5,9 @@
 <p>
 <%= @tasklist.content %>
 </p>
+<p>
+<%= @tasklist.status %>
+</p>
 
 <%= link_to '一覧に戻る', tasklists_path %>
 <%= link_to 'このメッセージを編集', edit_tasklist_path %>

@@ -4,11 +4,17 @@
 
 <%= form_for(@tasklist) do |f| %>
 
-<%= f.label :content, 'メッセージ' %>
+<%= f.label :content, 'タスク' %>
 
 <%= f.text_field :content %>
 
-<%= f.submit '投稿' %>
+&gt;
+
+<%= f.label :status, 'ステータス' %>
+
+<%= f.text_field :status %>
+
+<%= f.submit '編集' %>
 
 <% end %>
 
