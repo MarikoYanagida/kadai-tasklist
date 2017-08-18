@@ -2,20 +2,6 @@
 <%= @tasklist.id %>
 のメッセージ編集ページ</h1>
 
-<%= form_for(@tasklist) do |f| %>
-
-<%= f.label :content, 'タスク' %>
-
-<%= f.text_field :content %>
-
-&gt;
-
-<%= f.label :status, 'ステータス' %>
-
-<%= f.text_field :status %>
-
-<%= f.submit '編集' %>
-
-<% end %>
+<%=render 'form', tasklist: @tasklist %>
 
 <%= link_to '一覧に戻る', tasklists_path %>

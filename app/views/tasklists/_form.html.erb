@@ -1,0 +1,15 @@
+<%= form_for(tasklist) do |f| %>
+
+<%= f.label :content,'タスク' %>
+
+<%= f.text_field :content %>
+
+&gt;
+
+<%= f.label :status, 'ステータス' %>
+
+<%= f.text_field :status %>
+
+<%= f.submit '追加' %>
+
+<% end %>
