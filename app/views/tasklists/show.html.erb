@@ -2,13 +2,27 @@
 <%= @tasklist.id %>
 のタスク詳細ページ</h1>
 
-<p>
+<table class="table table-boredered">
+  <tr>
+    <th>id</th>
+    <td>
+<%= @tasklist.id %>
+    </td>
+  </tr>
+  <tr>
+    <th>タスク</th>
+    <td>
 <%= @tasklist.content %>
-</p>
-<p>
+    </td>
+  </tr>
+  <tr>
+    <th>ステータス</th>
+    <td>
 <%= @tasklist.status %>
-</p>
+    </td>
+  </tr>
+</table>
 
-<%= link_to '一覧に戻る', tasklists_path %>
-<%= link_to 'このメッセージを編集', edit_tasklist_path %>
-<%= link_to '削除', @tasklist, method: :delete, data: { confirm:'本当に削除してよろしいですか？'} %>
+<%= link_to '一覧に戻る', tasklists_path, class: 'btn btn-default' %>
+<%= link_to 'このメッセージを編集', edit_tasklist_path, class: 'btn btn-default'%>
+<%= link_to '削除', @tasklist, method: :delete, data: { confirm:'本当に削除してよろしいですか？'}, class: 'btn btn-danger' %>

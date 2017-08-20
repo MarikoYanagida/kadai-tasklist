@@ -2,7 +2,7 @@ class TasklistsController < ApplicationController
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
   
 def index
-  @tasklists = Tasklist.all
+  @tasklists = Tasklist.all.page(params[:page]).per(10)
 end
 
 def show
@@ -13,6 +13,8 @@ def new
 end
 
 def create
+  # p "**************"
+  # p params
   @tasklist = Tasklist.new(tasklist_params)
   
   if @tasklist.save
