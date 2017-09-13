@@ -1,5 +1,5 @@
 <ul class="media-list">
-  <% tasklist.each do |tasklist| %>
+  <% tasklists.each do |tasklist| %>
   
   <% user = tasklist.user %>
   
@@ -31,7 +31,7 @@
     
     <% end %>
     
-    <%= paginate microposts %>
+    <%= paginate tasklists %>
   
 </ul>
 
@@ -45,21 +45,21 @@
 <!--  </thead>-->
 <!--  <tbody>-->
     
-<!--<% @tasklists.each do |tasklist| %>-->
+<!--<%# @tasklists.each do |tasklist| %>-->
 <!--    <tr>-->
 <!--      <td>-->
-<!--<%= link_to tasklist.id, tasklist %>       -->
+<!--<%#= link_to tasklist.id, tasklist %>       -->
 <!--      </td>-->
       
 <!--      <td>-->
-<!--<%= tasklist.content %>        -->
+<!--<%#= tasklist.content %>        -->
 <!--      </td>-->
       
 <!--      <td>-->
-<!--<%= tasklist.status %>        -->
+<!--<%#= tasklist.status %>        -->
 <!--      </td>-->
 <!--    </tr>-->
-<!--<% end %>-->
+<!--<%# end %>-->
 
 <!--  </tbody>-->
 <!--</table>-->

@@ -1,52 +1,38 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>Welcome to the Tasklists</h1>
-    
-<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-
-  </div>
-</div>
-
-
 <% if logged_in? %>
- <p>ログイン完了ユーザ: 
-<%= current_user.name %>
-</p>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <h1>タスク一覧</h1>
 
-<h1>タスク一覧</h1>
-  <div class="row">
-    <aside class="col-md-4">
-      <%= form_for(@tasklist) do |f| %>
-        <div class="for-group">
-          <%= f.text_area :content, class: 'form-control', row: 5 %>
-        </div>
-        
-        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
-        
-        <% end %> 
-    </aside>
-    
-    <div class="col-xs-8">
-      <%= render 'tasklists/tasklists', tasklists: @tasklists %>
+  <% if @tasklists.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>ステータス</th>
+          <th>タスク</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasklists.each do |tasklist| %>
+          <tr>
+            <td><%= link_to tasklist.id, tasklist %></td>
+            <td><%= tasklist.status %></td>
+            <td><%= tasklist.content %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div>
+      <%= paginate @tasklists %>
+    </div>
+  <% end %>
+  <%= link_to '新規タスクの投稿', new_tasklist_path, class: "btn btn-primary" %>
+
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Tasklist</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
- 
-<% else %>
-<!--#ログインしてね系の-->
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1> Welcome to the Tasklist</h1>
-    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-  </div>
-</div>
 <% end %>
-
-<%= paginate @tasklists %>
-<br>
-
-<!--<h1>タスク一覧</h1>-->
-<!--<% if @tasklists.any? %>-->
-
-
-<!--<%= link_to '新規タスクの投稿', new_tasklist_path, class: "btn btn-primary" %>-->
 

@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save!
       flash[:success] = 'ユーザを登録しました'
       redirect_to root_url
     else
@@ -17,11 +16,11 @@ class UsersController < ApplicationController
     #成功時は redirect_to root_url
     # user#indexとuser#showは不要なので削除
 
-end 
 
 private
 #strong parameter
 def user_params
-    params.require(:user).permit(:email, :password_digest)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
 end
 
+end 
